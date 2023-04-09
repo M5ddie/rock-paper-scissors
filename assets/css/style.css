@@ -21,6 +21,7 @@ font-family: 'Slackey', cursive;
     width: 600px;
     height: 700px;
     margin: 0 auto;
+    margin-top: 20px;
     padding: 20px;
     background-size: contain;
     background-image: linear-gradient(-180deg, grey, pink, purple);
@@ -129,6 +130,7 @@ input {
 @media (max-width: 1300px) and (min-width: 781px){
     .mainDiv {
         width: auto;
+        height: 650px;
         padding: 0;
     }
 }
@@ -136,6 +138,7 @@ input {
 @media (max-width: 780px){
     .mainDiv {
         width: auto;
+        height: 600px;
         padding: 0;
     }
 }
