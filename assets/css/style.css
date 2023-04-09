@@ -5,17 +5,11 @@ font-family: 'Slackey', cursive;
 */
 
 * {
-    /* font-family: 'Quicksand', sans-serif; */
     font-family: 'Slackey', cursive;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* body {
-    background-image: linear-gradient(-180deg, grey, pink, green);
-    background-size: cover;
-} */
 
 .mainDiv {
     width: 600px;
@@ -69,33 +63,33 @@ input {
 }
 
 .controlsDiv {
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .pcDiv {
-    /* border: 1px solid green; */
     height: 30%;
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
+    padding-left: 5px;
 }
 
 .resultDiv {
-    /* border: 1px solid orange; */
     height: 8%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     font-size: 40px;
+    text-align: center;
 }
 
 .userDiv {
-    /* border: 1px solid blue; */
     height: 30%;
     display: flex;
     align-items: center;
+    padding-left: 5px;
 }
 
 .pcDiv img, .userDiv img {
@@ -103,7 +97,6 @@ input {
 }
 
 .scoreDiv {
-    /* border: 1px solid blue; */
     height: 100%;
     width: 10%;
     display: flex;
@@ -112,8 +105,6 @@ input {
 }
 
 .handDiv {
-    /* border: 1px solid blue; */
-    /* height: 100%; */
     width: 50%;
     margin: 0 auto;
     display: flex;
@@ -122,7 +113,6 @@ input {
 }
 
 .btnDiv {
-    /* border: 1px solid red; */
     height: 15%;
     display: flex;
     justify-content: space-evenly;
@@ -141,6 +131,10 @@ input {
     .pcDiv img, .userDiv img {
         height: 180px;
     }
+
+    .resultDiv {
+        font-size: 35px;
+    }
 }
 
 @media (max-width: 780px){
@@ -152,5 +146,9 @@ input {
 
     .pcDiv img, .userDiv img {
         height: 130px;
+    }
+
+    .resultDiv {
+        font-size: 30px;
     }
 }
