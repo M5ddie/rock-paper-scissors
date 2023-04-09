@@ -13,83 +13,139 @@ let userScore = document.querySelector("#userScore");
 pcScore.disabled = true;
 userScore.disabled = true;
 
+//options
+let gameSet = document.querySelector("#gameSet");
+
 //eventListener/s
 rockBtn.addEventListener("click", getRock);
 paperBtn.addEventListener("click", getPaper);
 scissorsBtn.addEventListener("click", getScissors);
-resetBtn.addEventListener("click", resetScore);
+resetBtn.addEventListener("click", resetGame);
+gameSet.addEventListener("change", getGameSet);
 
 // vs random
 let pcHands = ["rock", "paper", "scissors"];
 
 //function/s
+function getGameSet() {
+    return gameSet.value;
+}
 
 // player chooses rock
 function getRock() {
-    let pcBet = handSelector();
-    let playerBet = "rock";
-
-    // userSelected.innerHTML = playerBet;
-    userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
-
-    if(pcBet == playerBet) {
-        result.innerHTML = "DRAW";
-    } else if(pcBet == "paper") {
-        result.innerHTML = "You lose!";
-        let currentScore = pcScore.value;
-        pcScore.value = getscore(currentScore);
-    } else if(pcBet == "scissors") {
-        result.innerHTML = "You won!";
-        let currentScore = userScore.value;
-        userScore.value = getscore(currentScore);
+    if(getGameSet() == 0) {
+        result.innerHTML = "Please select a Game Set";
     } else {
-        result.innerHTML = "Play again.";
+        let pcBet = handSelector();
+        let playerBet = "rock";
+    
+        // userSelected.innerHTML = playerBet;
+        userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
+    
+        if(pcBet == playerBet) {
+            result.innerHTML = "DRAW";
+        } else if(pcBet == "paper") {
+            pcScore.value = getscore(pcScore.value);
+            if(pcScore.value == getGameSet()){
+                result.innerHTML = "Defeat!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Oops!"
+            }
+        } else if(pcBet == "scissors") {
+            userScore.value = getscore(userScore.value);
+            if(userScore.value == getGameSet()){
+                result.innerHTML = "VICTORY!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Nice!";
+            }
+        } else {
+            result.innerHTML = "Play again.";
+        }
     }
+    
 }
 
 // player chooses paper
 function getPaper() {
-    let pcBet = handSelector();
-    let playerBet = "paper";
-
-    // userSelected.innerHTML = playerBet;
-    userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
-
-    if(pcBet == playerBet) {
-        result.innerHTML = "DRAW";
-    } else if(pcBet == "scissors") {
-        result.innerHTML = "You lose!";
-        let currentScore = pcScore.value;
-        pcScore.value = getscore(currentScore);
-    } else if(pcBet == "rock") {
-        result.innerHTML = "You won!";
-        let currentScore = userScore.value;
-        userScore.value = getscore(currentScore);
+    if(getGameSet() == 0) {
+        result.innerHTML = "Please select a Game Set";
     } else {
-        result.innerHTML = "Play again.";
+        let pcBet = handSelector();
+        let playerBet = "paper";
+    
+        // userSelected.innerHTML = playerBet;
+        userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
+    
+        if(pcBet == playerBet) {
+            result.innerHTML = "DRAW";
+        } else if(pcBet == "scissors") {
+            pcScore.value = getscore(pcScore.value);
+            if(pcScore.value == getGameSet()){
+                result.innerHTML = "Defeat!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Oops!"
+            }
+        } else if(pcBet == "rock") {
+            userScore.value = getscore(userScore.value);
+            if(userScore.value == getGameSet()){
+                result.innerHTML = "VICTORY!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Nice!";
+            }
+        } else {
+            result.innerHTML = "Play again.";
+        }
     }
 }
 
 // player chooses scissors
 function getScissors() {
-    let pcBet = handSelector();
-    let playerBet = "scissors";
-
-    // userSelected.innerHTML = playerBet;
-    userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
-
-    if(pcBet == playerBet) {
-        result.innerHTML = "DRAW";
-    } else if(pcBet == "rock") {
-        result.innerHTML = "You lose!";
-        let currentScore = pcScore.value;
-        pcScore.value = getscore(currentScore);
-    } else if(pcBet == "paper") {
-        result.innerHTML = "You won!";
-        let currentScore = userScore.value;
-        userScore.value = getscore(currentScore);
+    if(getGameSet() == 0) {
+        result.innerHTML = "Please select a Game Set";
     } else {
-        result.innerHTML = "Play again.";
+        let pcBet = handSelector();
+        let playerBet = "scissors";
+
+        // userSelected.innerHTML = playerBet;
+         userSelected.innerHTML = "<img src='assets/images/" + playerBet + ".png'>";
+    
+        if(pcBet == playerBet) {
+             result.innerHTML = "DRAW";
+        } else if(pcBet == "rock") {
+            pcScore.value = getscore(pcScore.value);
+            if(pcScore.value == getGameSet()){
+                result.innerHTML = "Defeat!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Oops!"
+            }
+        } else if(pcBet == "paper") {
+            userScore.value = getscore(userScore.value);
+            if(userScore.value == getGameSet()){
+                result.innerHTML = "VICTORY!";
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorsBtn.disabled = true;
+            } else {
+                result.innerHTML = "Nice!";
+            }
+        } else {
+            result.innerHTML = "Play again.";
+        }
     }
 }
 
@@ -109,7 +165,13 @@ function getscore(currScore) {
     return currentScore;
 }
 
-function resetScore() {
-    pcScore.value = 0;
-    userScore.value = 0;
+function resetGame() {
+    // gameSet.value = 0;
+    // pcScore.value = 0;
+    // userScore.value = 0;
+    // pcSelected.innerHTML = "";
+    // userSelected.innerHTML = "";
+    // result.innerHTML = "Ready ?";
+    window.location.reload();
 }
+

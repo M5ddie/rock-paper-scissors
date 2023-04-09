@@ -5,7 +5,8 @@ font-family: 'Slackey', cursive;
 */
 
 * {
-    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Quicksand', sans-serif; */
+    font-family: 'Slackey', cursive;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +19,7 @@ font-family: 'Slackey', cursive;
 
 .mainDiv {
     width: 600px;
-    height: 750px;
+    height: 700px;
     margin: 0 auto;
     padding: 20px;
     background-size: contain;
@@ -31,6 +32,11 @@ font-family: 'Slackey', cursive;
     justify-content: space-evenly;
 }
 
+#resetBtn, #gameSet {
+    padding: 5px;
+    border-radius: 10px;
+    background-image: linear-gradient(-180deg, rgb(235, 225, 96), rgb(245, 153, 169));
+}
 .handsBtnImg {
     height: 100px;
 }
@@ -60,7 +66,9 @@ input {
 }
 
 .controlsDiv {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
 }
 
 .pcDiv {
