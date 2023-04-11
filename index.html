@@ -9,40 +9,61 @@
 </head>
 <body>
     <div class="mainDiv">
-        <div class="controlsDiv">
-            <select id="gameSet">
-                <option value="0" selected disabled>GameSet</option>
-                <option value="3">3pts Win</option>
-                <option value="5">5pts Win</option>
-                <option value="10">10pts Win</option>
-            </select>
-            <button id="resetBtn">reset</button>
-        </div>
-        <div class="pcDiv">
-            <div class="scoreDiv">
-                <p>Computer</p>
-                <input id="pcScore" value="0">
+        <div class="gameDiv">
+            <div class="controlsDiv">
+                <select id="gameSet">
+                    <option value="0" selected disabled>GameSet</option>
+                    <option value="3">3pts Win</option>
+                    <option value="5">5pts Win</option>
+                    <option value="10">10pts Win</option>
+                </select>
+                <button id="resetBtn">Play again ?</button>
             </div>
-            <div class="handDiv">
-                <span id="pcSelected"></span>
+            <div class="pcDiv">
+                <div class="scoreDiv">
+                    <p>Computer</p>
+                    <input id="pcScore" value="0">
+                </div>
+                <div class="handDiv">
+                    <span id="pcSelected"></span>
+                </div>
+            </div>
+            <div class="resultDiv">
+                <span id="result">READY ?</span>
+            </div>
+            <div class="userDiv">
+                <div class="scoreDiv">
+                    <span>Player</span>
+                    <input id="userScore" value="0">
+                </div>
+                <div class="handDiv">
+                    <span id="userSelected"></span>
+                </div>
+            </div>
+            <div class="btnDiv">
+                <button id="rockBtn" class="handsBtn" value="rock"><img src="assets/images/rock.png" class="handsBtnImg"></button>
+                <button id="paperBtn" class="handsBtn" value="paper"><img src="assets/images/paper.png" class="handsBtnImg"></button>
+                <button id="scissorsBtn" class="handsBtn" value="scissors"><img src="assets/images/scissors.png" class="handsBtnImg"></button>
             </div>
         </div>
-        <div class="resultDiv">
-            <span id="result">READY ?</span>
-        </div>
-        <div class="userDiv">
-            <div class="scoreDiv">
-                <span>Player</span>
-                <input id="userScore" value="0">
-            </div>
-            <div class="handDiv">
-                <span id="userSelected"></span>
-            </div>
-        </div>
-        <div class="btnDiv">
-            <button id="rockBtn" class="handsBtn" value="rock"><img src="assets/images/rock.png" class="handsBtnImg"></button>
-            <button id="paperBtn" class="handsBtn" value="paper"><img src="assets/images/paper.png" class="handsBtnImg"></button>
-            <button id="scissorsBtn" class="handsBtn" value="scissors"><img src="assets/images/scissors.png" class="handsBtnImg"></button>
+    
+        <div class="sideDiv">
+            <!-- Computer vs Player -->
+            <ul id="matchList">
+                <!-- xx -->
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Computer</td>
+                        <td>vs</td>
+                        <td>Player</td>
+                    </tr>
+                </thead>
+                <tbody id="tableList">
+                </tbody>
+            </table>
         </div>
     </div>
 
