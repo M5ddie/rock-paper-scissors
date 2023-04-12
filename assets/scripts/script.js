@@ -4,13 +4,19 @@ let paperBtn = document.querySelector("#paperBtn");
 let scissorsBtn = document.querySelector("#scissorsBtn");
 let resetBtn = document.querySelector("#resetBtn");
 
+// get value
+let playerName = document.querySelector("#playerName");
+let gameSet = document.querySelector("#gameSet");
+
 //eventListener/s
 rockBtn.addEventListener("click", getRock);
 paperBtn.addEventListener("click", getPaper);
 scissorsBtn.addEventListener("click", getScissors);
 resetBtn.addEventListener("click", resetGame);
+playerName.addEventListener("change", getPlayerName);
 
-//display/s
+// display/s
+let playerNameDisplay = document.querySelector("#playerNameDisplay");
 let userSelected = document.querySelector("#userSelected");
 let pcSelected = document.querySelector("#pcSelected");
 let result = document.querySelector("#result");
@@ -23,11 +29,13 @@ userScore.disabled = true;
 let matchList = document.querySelector("#matchList");
 let tableList = document.querySelector("#tableList");
 
-// options
-let gameSet = document.querySelector("#gameSet");
-
 // array
 let pcHands = ["rock", "paper", "scissors"];
+
+// get player name
+function getPlayerName() {
+    playerNameDisplay.textContent = playerName.value;
+}
 
 // pc hands selector
 function handSelector() {
@@ -208,14 +216,25 @@ function recordPick(pcPicked, userPicked, colorStyle) {
     let tdpc = document.createElement("td");
     let tdvs = document.createElement("td");
     let tduser = document.createElement("td");
-    // row.innerHTML = td;
     tdpc.textContent = pcPicked;
-    // tdpc.style.color = "red";
     tdvs.textContent = "vs";
     tduser.textContent = userPicked;
     tduser.style.color = colorStyle;
     row.appendChild(tdpc);
     row.appendChild(tdvs);
     row.appendChild(tduser);
-    tableList.appendChild(row);
+    // tableList.appendChild(row);
+    tableList.insertBefore(row, tableList.firstElementChild);
+
+    recordDisplayLimit();
+    
+}
+
+function recordDisplayLimit() {
+    let rowTotal = tableList.childElementCount;
+    let maxRecordRow = 25;
+
+    if(rowTotal > maxRecordRow) {
+        tableList.removeChild(tableList.lastElementChild);
+    }
 }
